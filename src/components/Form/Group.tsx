@@ -1,3 +1,5 @@
+'use client'
+
 import { FC, HTMLAttributes } from 'react'
 
 export interface FormGroupProps extends HTMLAttributes<HTMLDivElement> {}

@@ -1,3 +1,5 @@
+'use client'
+
 import { WarningOctagon } from '@phosphor-icons/react'
 import clsx from 'clsx'
 import { FC, HTMLAttributes } from 'react'

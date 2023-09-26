@@ -1,3 +1,5 @@
+'use client'
+
 import { FC, HTMLAttributes } from 'react'
 
 export interface FormLabelProps extends HTMLAttributes<HTMLLabelElement> {}

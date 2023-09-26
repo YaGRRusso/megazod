@@ -1,11 +1,5 @@
-import PageForm from './PageForm'
+import Image from 'next/image'
 
 export default function Home() {
-  return (
-    <main className="flex h-full min-h-screen w-full">
-      <div className="container flex items-center justify-center">
-        <PageForm />
-      </div>
-    </main>
-  )
+  return <Image src="/megazod.png" alt="logo" width={300} height={300} />
 }

@@ -5,6 +5,7 @@ import check from '@/helpers/check.helper'
 import { Button, Input } from '@coaktion/visu'
 import {
   ArrowsCounterClockwise,
+  Atom,
   CaretRight,
   Eye,
   EyeClosed,
@@ -55,8 +56,9 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
   )
 
   return (
-    <div className="flex w-full max-w-xl flex-col gap-16 rounded-lg" {...rest}>
+    <>
       <PageTitle
+        icon={<Atom />}
         title="Use State"
         desc="Formulário utilizando o React useState padrão."
       />
@@ -110,7 +112,7 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
           </Button.Root>
         </div>
       </Form.Root>
-    </div>
+    </>
   )
 }
 

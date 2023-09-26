@@ -9,7 +9,7 @@
     "scope": "typescriptreact",
     "prefix": "reactcomp",
     "body": [
-      "'use-client'",
+      "'use client'",
       "",
       "import { FC, HTMLAttributes } from 'react'",
       "",

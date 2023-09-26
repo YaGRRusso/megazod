@@ -1,15 +1,23 @@
-'use-client'
+'use client'
 
-import { FC, HTMLAttributes } from 'react'
+import { FC, HTMLAttributes, ReactNode } from 'react'
 
 export interface PageTitleProps extends HTMLAttributes<HTMLDivElement> {
+  icon: ReactNode
   title: string
   desc: string
 }
 
-const PageTitle: FC<PageTitleProps> = ({ title, desc, children, ...rest }) => {
+const PageTitle: FC<PageTitleProps> = ({
+  icon,
+  title,
+  desc,
+  children,
+  ...rest
+}) => {
   return (
-    <div {...rest}>
+    <div className="flex flex-col" {...rest}>
+      <span className="pb-4 text-2xl text-primary">{icon}</span>
       <h2 className="text-xl">
         Formulário <strong className="text-primary">{title}</strong>
       </h2>
