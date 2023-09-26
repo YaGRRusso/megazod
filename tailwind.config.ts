@@ -1,20 +1,77 @@
+import VisuTailwindcssPlugin from '@coaktion/visu/dist/theme-plugin'
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './node_modules/@coaktion/visu/dist/visu.es.js',
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      colors: {
+        dark: '#282a36',
+        // 'dark-100': '#b5bad6',
+        // 'dark-200': '#9ea4c8',
+        // 'dark-300': '#888fb8',
+        // 'dark-400': '#727aa8',
+        // 'dark-500': '#5f6795',
+        // 'dark-600': '#53597c',
+        // 'dark-700': '#454a64',
+        // 'dark-800': '#373a4d',
+        // 'dark-900': '#282a36',
+        gray: '#c7cadf',
+        'gray-100': '#dfe1ed',
+        'gray-200': '#c7cadf',
+        'gray-300': '#b1b5d0',
+        'gray-400': '#9ba0c0',
+        'gray-500': '#858bb0',
+        'gray-600': '#71779f',
+        'gray-700': '#606689',
+        'gray-800': '#525771',
+        'gray-900': '#44475a',
+        primary: '#0dbfe5',
+        'primary-100': '#d4f8ff',
+        'primary-200': '#aff0fe',
+        'primary-300': '#8be9fd',
+        'primary-400': '#67e1fb',
+        'primary-500': '#44d9f8',
+        'primary-600': '#22d0f5',
+        'primary-700': '#0dbfe5',
+        // primary: '#a771f6',
+        // 'primary-100': '#e9dafe',
+        // 'primary-200': '#d3b6fc',
+        // 'primary-300': '#bd93f9',
+        // 'primary-400': '#a771f6',
+        // 'primary-500': '#924ff2',
+        // 'primary-600': '#7d2eed',
+        // 'primary-700': '#6916e0',
+        error: '#ff5555',
+        'error-100': '#ffc6c6',
+        'error-200': '#ffa0a0',
+        'error-300': '#ff7b7b',
+        'error-400': '#ff5555',
+        'error-500': '#fd3131',
+        'error-600': '#fb0e0e',
+        'error-700': '#dd0606',
+      },
+      fontFamily: {
+        inter: 'var(--font-inter)',
+      },
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1.5rem',
+        lg: '2rem',
+      },
+      screens: {
+        lg: '1280px',
       },
     },
   },
-  plugins: [],
+  plugins: [VisuTailwindcssPlugin],
 }
 export default config
