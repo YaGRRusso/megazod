@@ -9,7 +9,7 @@ export interface LinksProps extends HTMLAttributes<HTMLDivElement> {}
 
 const Links: FC<LinksProps> = ({ children, ...rest }) => {
   return (
-    <div className="mt-8 flex items-center gap-4" {...rest}>
+    <div className="mt-6 flex items-center gap-4" {...rest}>
       <Link href="https://github.com/YaGRRusso/megazod">
         <Button.Root size="sm" ghost>
           <Button.Icon>
