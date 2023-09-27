@@ -2,7 +2,11 @@
 
 import { Form, PageTitle, PasswordInput } from '@/components'
 import { Button, Input } from '@coaktion/visu'
-import { ArrowsCounterClockwise, Atom, CaretRight } from '@phosphor-icons/react'
+import {
+  Alien,
+  ArrowsCounterClockwise,
+  CaretRight,
+} from '@phosphor-icons/react'
 import { FC, HTMLAttributes, useCallback, useState } from 'react'
 import { z } from 'zod'
 import check from '../helpers/check.helper'
@@ -47,9 +51,9 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
   return (
     <>
       <PageTitle
-        icon={<Atom />}
-        title="Use State"
-        desc="Formulário utilizando o React useState padrão"
+        icon={<Alien />}
+        title="Zod e React-Hook-Form"
+        desc="Formulário utilizando as bibliotecas zod e react-hook-form"
       />
       <Form.Root className="w-full" onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>

@@ -27,7 +27,9 @@ export default function RootLayout({
             <PageSidebar />
           </div>
           <div className="flex flex-[2] items-center justify-center">
-            <div className="flex max-w-lg flex-col gap-16">{children}</div>
+            <div className="flex w-full max-w-md flex-col gap-16">
+              {children}
+            </div>
           </div>
         </main>
       </body>
