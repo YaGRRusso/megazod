@@ -7,7 +7,7 @@ import { FC } from 'react'
 
 const links: SidebarButtonProps[] = [
   {
-    path: '',
+    path: '/',
     icon: <House />,
     title: 'Home',
     desc: 'Tela inicial de apresentação sobre o projeto',
@@ -48,11 +48,11 @@ const PageSidebar: FC<PageSidebarProps> = ({ children, ...rest }) => {
       {links.map((item, index) => (
         <Sidebar.Button
           key={index}
-          path={'/pt-br' + item.path}
+          path={item.path}
           icon={item.icon}
           title={item.title}
           desc={item.desc}
-          active={pathname === '/pt-br' + item.path}
+          active={pathname === item.path}
         />
       ))}
     </Sidebar.Root>

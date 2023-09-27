@@ -12,11 +12,14 @@
     "@coaktion/visu": "^2.2.0",
     "@phosphor-icons/react": "^2.0.13",
     "clsx": "^2.0.0",
+    "negotiator": "^0.6.3",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-intl": "^6.4.7"
   },
   "devDependencies": {
+    "@types/negotiator": "^0.6.1",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",

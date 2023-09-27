@@ -1,8 +1,8 @@
 import clsx from 'clsx'
-import '../globals.css'
+import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import PageSidebar from './components/Sidebar'
+import PageSidebar from './[lang]/components/Sidebar'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
