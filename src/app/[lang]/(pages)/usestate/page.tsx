@@ -1,5 +1,5 @@
 import PageForm from './components/PageForm'
 
-export default function UseState() {
+export default function Page() {
   return <PageForm />
 }

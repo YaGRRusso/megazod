@@ -2,30 +2,36 @@
 
 import { Sidebar, SidebarButtonProps, SidebarRootProps } from '@/components'
 import { Alien, Atom, FlyingSaucer, House, Robot } from '@phosphor-icons/react'
-import { FC, useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { FC } from 'react'
 
 const links: SidebarButtonProps[] = [
-  { link: '/', icon: <House />, title: 'Home', desc: 'Tela inicial' },
   {
-    link: '/usestate',
-    icon: <Atom />,
-    title: 'Use State',
-    desc: 'Formulário simples utilizando useState hook (padrão',
+    path: '',
+    icon: <House />,
+    title: 'Home',
+    desc: 'Tela inicial de apresentação sobre o projeto',
   },
   {
-    link: '/zod',
+    path: '/usestate',
+    icon: <Atom />,
+    title: 'Use State',
+    desc: 'Formulário simples utilizando useState hook (padrão)',
+  },
+  {
+    path: '/zod',
     icon: <Alien />,
     title: 'Zod e RHF',
     desc: 'Formulário simples utilizando zod e react-hook-form',
   },
   {
-    link: '/async',
+    path: '/async',
     icon: <FlyingSaucer />,
     title: 'Async Zod e RHF',
-    desc: 'Formulário assíncrono simples utilizando zod e react-hook-form',
+    desc: 'Formulário async utilizando zod e react-hook-form',
   },
   {
-    link: '/megazod',
+    path: '/megazod',
     icon: <Robot />,
     title: 'Megazod',
     desc: 'Formulário utilizando zod, react-hook-form e imask',
@@ -35,19 +41,18 @@ const links: SidebarButtonProps[] = [
 export interface PageSidebarProps extends SidebarRootProps {}
 
 const PageSidebar: FC<PageSidebarProps> = ({ children, ...rest }) => {
-  const [active, setActive] = useState(0)
+  const pathname = usePathname()
 
   return (
     <Sidebar.Root {...rest}>
       {links.map((item, index) => (
         <Sidebar.Button
           key={index}
-          link={'/pt-br' + item.link}
+          path={'/pt-br' + item.path}
           icon={item.icon}
           title={item.title}
           desc={item.desc}
-          active={active === index}
-          onClick={() => setActive(index)}
+          active={pathname === '/pt-br' + item.path}
         />
       ))}
     </Sidebar.Root>

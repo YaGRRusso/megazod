@@ -60,7 +60,7 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
       <PageTitle
         icon={<Atom />}
         title="Use State"
-        desc="Formulário utilizando o React useState padrão."
+        desc="Formulário utilizando o React useState padrão"
       />
       <Form.Root
         className="w-full"

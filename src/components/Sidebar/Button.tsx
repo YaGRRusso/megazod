@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { FC, HTMLAttributes, ReactNode } from 'react'
 
 export interface SidebarButtonProps extends HTMLAttributes<HTMLLIElement> {
-  link: string
+  path: string
   icon: ReactNode
   title: string
   desc: string
@@ -13,7 +13,7 @@ export interface SidebarButtonProps extends HTMLAttributes<HTMLLIElement> {
 }
 
 const SidebarButton: FC<SidebarButtonProps> = ({
-  link,
+  path,
   icon,
   title,
   desc,
@@ -22,10 +22,10 @@ const SidebarButton: FC<SidebarButtonProps> = ({
   ...rest
 }) => {
   return (
-    <Link href={link}>
+    <Link href={path}>
       <li
         className={clsx(
-          'flex items-center justify-end gap-6 rounded-l py-6 pr-8',
+          'flex items-center justify-end gap-6 rounded-l py-6 pl-4 pr-8',
           active
             ? '-mr-[1px] border-r-4 border-primary-300 bg-primary-300 bg-opacity-5'
             : 'origin-right cursor-pointer opacity-60 transition-all hover:opacity-100',
