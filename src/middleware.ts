@@ -19,9 +19,10 @@ function getLocale(request: Request): string {
 }
 
 export function middleware(request: NextRequest) {
-  const locale = getLocale(request) ?? defaultLocale
   const pathname = request.nextUrl.pathname
+  if (/\.(.*)$/.test(pathname)) return // public directory
 
+  const locale = getLocale(request) ?? defaultLocale
   const newUrl = new URL(`/${locale}${pathname}`, request.nextUrl)
 
   return NextResponse.rewrite(newUrl)
