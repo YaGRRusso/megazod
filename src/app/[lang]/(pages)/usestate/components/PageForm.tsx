@@ -1,7 +1,7 @@
 'use client'
 
 import { Form, PageTitle } from '@/components'
-import check from '@/helpers/check.helper'
+import check from '../helpers/check.helper'
 import { Button, Input } from '@coaktion/visu'
 import {
   ArrowsCounterClockwise,
@@ -16,11 +16,18 @@ interface PageFormProps extends HTMLAttributes<HTMLDivElement> {}
 
 const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
   const [email, setEmail] = useState('')
+  const [emailDefaultValue] = useState('')
   const [emailError, setEmailError] = useState<string | null>(null)
 
   const [password, setPassword] = useState('')
+  const [passwordDefaultValue] = useState('')
   const [isShowingPassword, setIsShowingPassword] = useState(false)
   const [passwordError, setPasswordError] = useState<string | null>(null)
+
+  const handleReset = useCallback(() => {
+    setEmail(emailDefaultValue)
+    setPassword(passwordDefaultValue)
+  }, [emailDefaultValue, passwordDefaultValue])
 
   const onSubmit = useCallback(() => {
     console.log({ email, password })
@@ -99,7 +106,12 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
         </Form.Group>
 
         <div className="mt-4 flex items-center justify-end gap-4">
-          <Button.Root ghost size="sm" type="button">
+          <Button.Root
+            ghost
+            size="sm"
+            type="button"
+            onClick={() => handleReset()}
+          >
             <Button.Icon>
               <ArrowsCounterClockwise />
             </Button.Icon>
