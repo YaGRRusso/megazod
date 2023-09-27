@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Links from './components/Links'
 
 export default function Page() {
   return (
@@ -10,6 +11,7 @@ export default function Page() {
         digitação, formatação e verificação de dados no lado do client no pré
         envio de formulários
       </p>
+      <Links />
     </div>
   )
 }
