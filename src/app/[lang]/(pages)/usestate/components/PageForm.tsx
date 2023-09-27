@@ -1,15 +1,9 @@
 'use client'
 
-import { Form, PageTitle } from '@/components'
+import { Form, PageTitle, PasswordInput } from '@/components'
 import check from '../helpers/check.helper'
 import { Button, Input } from '@coaktion/visu'
-import {
-  ArrowsCounterClockwise,
-  Atom,
-  CaretRight,
-  Eye,
-  EyeClosed,
-} from '@phosphor-icons/react'
+import { ArrowsCounterClockwise, Atom, CaretRight } from '@phosphor-icons/react'
 import { FC, FormEvent, HTMLAttributes, useCallback, useState } from 'react'
 
 interface PageFormProps extends HTMLAttributes<HTMLDivElement> {}
@@ -21,7 +15,6 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
 
   const [password, setPassword] = useState('')
   const [passwordDefaultValue] = useState('')
-  const [isShowingPassword, setIsShowingPassword] = useState(false)
   const [passwordError, setPasswordError] = useState<string | null>(null)
 
   const handleReset = useCallback(() => {
@@ -88,18 +81,10 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
 
         <Form.Group>
           <Form.Label>Senha</Form.Label>
-          <Input.Root full>
-            <Input.Input
-              type={isShowingPassword ? 'text' : 'password'}
-              value={password}
-              onChange={(ev) => setPassword(ev.target.value)}
-            />
-            <Input.Icon
-              onClick={() => setIsShowingPassword(!isShowingPassword)}
-            >
-              {isShowingPassword ? <Eye /> : <EyeClosed />}
-            </Input.Icon>
-          </Input.Root>
+          <PasswordInput
+            value={password}
+            onChange={(ev) => setPassword(ev.target.value)}
+          />
           <Form.Message color="error" isShowing={!!passwordError}>
             {passwordError}
           </Form.Message>
