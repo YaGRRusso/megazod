@@ -23,11 +23,11 @@ export default function RootLayout({
         className={clsx(inter.variable, 'bg-dark font-inter text-gray-100')}
       >
         <main className="container flex h-full min-h-screen gap-16">
-          <div className="flex max-w-xs flex-[1] items-center justify-end max-lg:hidden">
+          <div className="flex max-w-xs flex-[1] items-center justify-end py-16 max-lg:hidden">
             <PageSidebar />
           </div>
           <div className="flex flex-[2] items-center justify-center">
-            <div className="flex w-full max-w-md flex-col gap-16">
+            <div className="flex w-full max-w-md flex-col gap-16 py-16">
               {children}
             </div>
           </div>

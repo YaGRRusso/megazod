@@ -16,10 +16,6 @@ const check = {
     value: /([!,%,&,@,#,$,^,*,?,_,.,;,~,+,-])/,
     message: 'needSpecialCharacter',
   } as CheckProps,
-  fullName: {
-    value: /^([A-Za-z]{3,}\s)([A-Za-z]{2,}\s)*([A-Za-z]{3,})$/,
-    message: 'invalidFullName',
-  } as CheckProps,
 }
 
 export default check

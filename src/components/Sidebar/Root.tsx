@@ -7,7 +7,7 @@ export interface SidebarRootProps extends HTMLAttributes<HTMLUListElement> {}
 const SidebarRoot: FC<SidebarRootProps> = ({ children, ...rest }) => {
   return (
     <ul
-      className="flex w-full flex-col gap-y-4 border-r border-primary-300 text-right"
+      className="sticky bottom-12 top-12 flex w-full flex-col gap-y-4 border-r border-primary-300 text-right"
       {...rest}
     >
       {children}

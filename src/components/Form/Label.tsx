@@ -2,12 +2,15 @@
 
 import { FC, HTMLAttributes } from 'react'
 
-export interface FormLabelProps extends HTMLAttributes<HTMLLabelElement> {}
+export interface FormLabelProps extends HTMLAttributes<HTMLLabelElement> {
+  optional?: boolean
+}
 
-const FormLabel: FC<FormLabelProps> = ({ children, ...rest }) => {
+const FormLabel: FC<FormLabelProps> = ({ optional, children, ...rest }) => {
   return (
     <label className="text-sm font-semibold text-gray" {...rest}>
-      {children}
+      {children}{' '}
+      {optional && <span className="text-xs font-normal">(opcional)</span>}
     </label>
   )
 }
