@@ -3,6 +3,9 @@ type CheckProps = {
   message: string
 }
 
+/**
+ * Regex collection to check inputs
+ */
 const check = {
   number: { value: /([0-9])/, message: 'needNumber' } as CheckProps,
   capitalLetter: {

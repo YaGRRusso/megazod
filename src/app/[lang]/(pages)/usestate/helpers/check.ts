@@ -1,3 +1,6 @@
+/**
+ * Regex collection to check inputs
+ */
 const check = {
   required: (data: string) => !data && 'required',
   email: (data: string) =>

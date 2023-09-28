@@ -1,7 +1,7 @@
 'use client'
 
 import { Confetti, Form, PageTitle, PasswordInput } from '@/components'
-import check from '../helpers/check.helper'
+import check from '../helpers/check'
 import { Button, Input } from '@coaktion/visu'
 import { ArrowsCounterClockwise, Atom, CaretRight } from '@phosphor-icons/react'
 import { FC, FormEvent, HTMLAttributes, useCallback, useState } from 'react'

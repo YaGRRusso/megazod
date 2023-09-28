@@ -23,7 +23,7 @@ const Confetti: FC<ConfettiProps> = ({ ...rest }) => {
       width={width}
       height={height}
       numberOfPieces={onParty ? 500 : 0}
-      gravity={0.2}
+      gravity={0.1}
       {...rest}
     />
   )

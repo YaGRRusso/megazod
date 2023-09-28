@@ -9,7 +9,7 @@ import {
 } from '@phosphor-icons/react'
 import { FC, HTMLAttributes, useCallback, useState } from 'react'
 import { z } from 'zod'
-import check from '../helpers/check.helper'
+import check from '../helpers/check'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 
