@@ -9,7 +9,7 @@ export interface ConfettiProps extends Partial<IConfettiOptions> {}
 const Confetti: FC<ConfettiProps> = ({ ...rest }) => {
   const [isAppearing, setIsAppearing] = useState(true)
   const [onParty, setOnParty] = useState(true)
-  const { scrollHeight, scrollWidth } = document.documentElement
+  const { innerHeight, innerWidth } = window
 
   useEffect(() => {
     setTimeout(() => {
@@ -19,14 +19,17 @@ const Confetti: FC<ConfettiProps> = ({ ...rest }) => {
 
   return (
     isAppearing && (
-      <ReactConfetti
-        height={scrollHeight}
-        width={scrollWidth}
-        numberOfPieces={onParty ? 500 : 0}
-        onConfettiComplete={() => setIsAppearing(false)}
-        gravity={0.1}
-        {...rest}
-      />
+      <div className="pointer-events-none fixed inset-0">
+        <ReactConfetti
+          height={innerHeight}
+          width={innerWidth}
+          className="h-full w-full"
+          numberOfPieces={onParty ? 500 : 0}
+          onConfettiComplete={() => setIsAppearing(false)}
+          gravity={0.1}
+          {...rest}
+        />
+      </div>
     )
   )
 }
