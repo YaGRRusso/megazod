@@ -5,7 +5,7 @@ import { Button, Checkbox, Input, Select } from '@coaktion/visu'
 import {
   ArrowsCounterClockwise,
   CaretRight,
-  FlyingSaucer,
+  Robot,
 } from '@phosphor-icons/react'
 import { FC, HTMLAttributes, useCallback, useState } from 'react'
 import { z } from 'zod'
@@ -79,9 +79,9 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
     <>
       {isSubmitSuccessful && <Confetti />}
       <PageTitle
-        icon={<FlyingSaucer />}
-        title="Async Zod e React-Hook-Form"
-        desc="Formulário assincrono utilizando as bibliotecas zod e react-hook-form, geralmente utilizado em updates de informacoes"
+        icon={<Robot />}
+        title="Megazod"
+        desc="Formulário utilizando as bibliotecas zod, react-hook-form e imask para validação e formatação total de informações"
       />
       <Form.Root className="w-full" onSubmit={handleSubmit(onSubmit)}>
         <Form.Group>
