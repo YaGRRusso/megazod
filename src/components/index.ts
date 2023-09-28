@@ -14,3 +14,6 @@ export type { SidebarButtonProps, SidebarRootProps } from './Sidebar'
 
 export { default as PasswordInput } from './PasswordInput'
 export type { PasswordInputProps } from './PasswordInput'
+
+export { default as Confetti } from './Confetti'
+export type { ConfettiProps } from './Confetti'

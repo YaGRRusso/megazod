@@ -1,6 +1,6 @@
 'use client'
 
-import { Form, PageTitle, PasswordInput } from '@/components'
+import { Confetti, Form, PageTitle, PasswordInput } from '@/components'
 import { Button, Input } from '@coaktion/visu'
 import {
   Alien,
@@ -38,7 +38,7 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
     setValue,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm<FormSchemaProps>({
     resolver: zodResolver(formSchema),
     defaultValues,
@@ -50,6 +50,7 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
 
   return (
     <>
+      {isSubmitSuccessful && <Confetti />}
       <PageTitle
         icon={<Alien />}
         title="Zod e React-Hook-Form"

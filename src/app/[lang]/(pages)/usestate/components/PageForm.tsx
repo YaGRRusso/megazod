@@ -1,6 +1,6 @@
 'use client'
 
-import { Form, PageTitle, PasswordInput } from '@/components'
+import { Confetti, Form, PageTitle, PasswordInput } from '@/components'
 import check from '../helpers/check.helper'
 import { Button, Input } from '@coaktion/visu'
 import { ArrowsCounterClockwise, Atom, CaretRight } from '@phosphor-icons/react'
@@ -9,6 +9,8 @@ import { FC, FormEvent, HTMLAttributes, useCallback, useState } from 'react'
 interface PageFormProps extends HTMLAttributes<HTMLDivElement> {}
 
 const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false)
+
   const [email, setEmail] = useState('')
   const [emailDefaultValue] = useState('')
   const [emailError, setEmailError] = useState<string | null>(null)
@@ -24,6 +26,7 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
 
   const onSubmit = useCallback(() => {
     console.log({ email, password })
+    setIsSubmitSuccessful(true)
   }, [email, password])
 
   const checkEmail = useCallback(() => {
@@ -57,6 +60,7 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
 
   return (
     <>
+      {isSubmitSuccessful && <Confetti />}
       <PageTitle
         icon={<Atom />}
         title="Use State"

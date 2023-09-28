@@ -5,9 +5,9 @@ import { GithubLogo } from '@phosphor-icons/react'
 import Link from 'next/link'
 import { FC, HTMLAttributes } from 'react'
 
-export interface LinksProps extends HTMLAttributes<HTMLDivElement> {}
+export interface PageLinksProps extends HTMLAttributes<HTMLDivElement> {}
 
-const Links: FC<LinksProps> = ({ children, ...rest }) => {
+const PageLinks: FC<PageLinksProps> = ({ children, ...rest }) => {
   return (
     <div className="mt-6 flex items-center gap-4" {...rest}>
       <Link href="https://github.com/YaGRRusso/megazod" target="_blank">
@@ -22,6 +22,6 @@ const Links: FC<LinksProps> = ({ children, ...rest }) => {
   )
 }
 
-Links.displayName = 'Links'
+PageLinks.displayName = 'PageLinks'
 
-export default Links
+export default PageLinks

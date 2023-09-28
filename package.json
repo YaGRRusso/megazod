@@ -17,10 +17,12 @@
     "next": "latest",
     "next-intl": "^3.0.0-beta.19",
     "react": "latest",
+    "react-confetti": "^6.1.0",
     "react-dom": "latest",
     "react-hook-form": "^7.46.2",
     "react-intl": "^6.4.7",
     "react-loading-skeleton": "^3.3.1",
+    "react-use": "^17.4.0",
     "zod": "^3.22.2"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 'use client'
 
-import { Form, PageTitle, PasswordInput } from '@/components'
+import { Confetti, Form, PageTitle, PasswordInput } from '@/components'
 import { Button, Input } from '@coaktion/visu'
 import {
   ArrowsCounterClockwise,
@@ -41,7 +41,7 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
     setValue,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm<FormSchemaProps>({
     resolver: zodResolver(formSchema),
     defaultValues,
@@ -66,6 +66,7 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
 
   return (
     <>
+      {isSubmitSuccessful && <Confetti />}
       <PageTitle
         icon={<FlyingSaucer />}
         title="Async Zod e React-Hook-Form"
@@ -76,7 +77,7 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
           <Form.Label>Email</Form.Label>
           {isLoading ? (
             <SkeletonTheme baseColor="#44475a" highlightColor="#525771">
-              <Skeleton height={46} />
+              <Skeleton height={42} />
             </SkeletonTheme>
           ) : (
             <Input.Root full>
@@ -95,7 +96,7 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
           <Form.Label>Senha</Form.Label>
           {isLoading ? (
             <SkeletonTheme baseColor="#44475a" highlightColor="#525771">
-              <Skeleton height={46} />
+              <Skeleton height={42} />
             </SkeletonTheme>
           ) : (
             <PasswordInput
