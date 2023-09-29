@@ -34,7 +34,7 @@ const SidebarButton: FC<SidebarButtonProps> = ({
       >
         <div className="flex flex-col items-end">
           <strong>{title}</strong>
-          <p className="text-sm text-gray-300">{desc}</p>
+          <p className="text-sm text-gray-800 dark:text-gray-300">{desc}</p>
         </div>
         <span className="text-xl text-primary-300">{icon}</span>
       </li>

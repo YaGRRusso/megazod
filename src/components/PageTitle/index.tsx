@@ -21,7 +21,7 @@ const PageTitle: FC<PageTitleProps> = ({
       <h2 className="text-xl">
         Formulário <strong className="text-primary">{title}</strong>
       </h2>
-      <p className="text-gray-300">{desc}</p>
+      <p className="text-gray-800 dark:text-gray-300">{desc}</p>
     </div>
   )
 }

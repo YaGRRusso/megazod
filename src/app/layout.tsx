@@ -1,9 +1,10 @@
-import clsx from 'clsx'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import PageSidebar from './components/Sidebar'
 import { Providers } from './providers'
+import Body from './components/Body'
+import clsx from 'clsx'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -20,11 +21,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={clsx(inter.variable, 'bg-dark font-inter text-gray-100')}
-      >
-        <Providers>
-          <main className="container flex h-full min-h-screen gap-16">
+      <Providers>
+        <Body className={clsx(inter.variable, 'font-inter')}>
+          <main className="container flex h-full min-h-screen gap-16 text-gray-900 dark:bg-dark dark:text-gray-100">
             <div className="flex max-w-xs flex-[1] items-center justify-end py-16 max-lg:hidden">
               <PageSidebar />
             </div>
@@ -34,8 +33,8 @@ export default function RootLayout({
               </div>
             </div>
           </main>
-        </Providers>
-      </body>
+        </Body>
+      </Providers>
     </html>
   )
 }

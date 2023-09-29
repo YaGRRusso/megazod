@@ -163,17 +163,17 @@ const PageForm: FC<PageFormProps> = ({ children, ...rest }) => {
           <Select.Root
             full
             placeholder="Selecione uma opção"
-            className="[&_*]:text-gray-100"
+            className="[&_*]:dark:text-gray-100"
             value={watch('timezone')}
             onChange={(ev) => setValue('timezone', ev)}
           >
-            <Select.Item className="text-gray-900" value="1">
+            <Select.Item className="dark:text-gray-900" value="1">
               Greenwich (GMT+1)
             </Select.Item>
-            <Select.Item className="text-gray-900" value="-3">
+            <Select.Item className="dark:text-gray-900" value="-3">
               Brasília (GMT-3)
             </Select.Item>
-            <Select.Item className="text-gray-900" value="-4">
+            <Select.Item className="dark:text-gray-900" value="-4">
               Washington (GMT-4)
             </Select.Item>
           </Select.Root>

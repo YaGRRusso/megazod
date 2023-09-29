@@ -8,7 +8,7 @@ export interface FormLabelProps extends HTMLAttributes<HTMLLabelElement> {
 
 const FormLabel: FC<FormLabelProps> = ({ optional, children, ...rest }) => {
   return (
-    <label className="text-sm font-semibold text-gray" {...rest}>
+    <label className="text-sm font-semibold dark:text-gray" {...rest}>
       {children}{' '}
       {optional && <span className="text-xs font-normal">(opcional)</span>}
     </label>
