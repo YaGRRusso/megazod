@@ -8,7 +8,7 @@ import { FC, HTMLAttributes, useState } from 'react'
 export interface SidebarRootProps extends HTMLAttributes<HTMLUListElement> {}
 
 const SidebarRoot: FC<SidebarRootProps> = ({ children, ...rest }) => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div
