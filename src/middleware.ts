@@ -1,33 +1,43 @@
-import Negotiator from 'negotiator'
 import { match } from '@formatjs/intl-localematcher'
-import { NextRequest, NextResponse } from 'next/server'
+import Negotiator from 'negotiator'
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 import { i18n } from '../i18n.config'
 
 const { locales, defaultLocale } = i18n
 
-function getLocale(request: Request): string {
-  const headers = new Headers(request.headers)
-  const acceptLanguages = headers.get('accept-language')
-  if (acceptLanguages) {
-    headers.set('accept-language', acceptLanguages.replaceAll('_', '-'))
-  }
+function getLocale(request: NextRequest): string | undefined {
+  const negotiatorHeaders: Record<string, string> = {}
+  request.headers.forEach((value, key) => (negotiatorHeaders[key] = value))
 
-  const headersObject = Object.fromEntries(headers.entries())
-  const languages = new Negotiator({ headers: headersObject }).languages()
+  const languages = new Negotiator({ headers: negotiatorHeaders }).languages(
+    locales,
+  )
 
   return match(languages, locales, defaultLocale)
 }
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
-  if (/\.(.*)$/.test(pathname)) return // public directory
+  if (/\.(.*)$/.test(pathname)) return NextResponse.next() // skip public directory
 
-  const locale = getLocale(request) ?? defaultLocale
-  const newUrl = new URL(`/${locale}${pathname}`, request.nextUrl)
+  const pathnameIsMissingLocale = locales.every(
+    (locale) =>
+      !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
+  )
 
-  return NextResponse.rewrite(newUrl)
+  if (pathnameIsMissingLocale) {
+    const locale = getLocale(request)
+
+    return NextResponse.redirect(
+      new URL(
+        `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
+        request.url,
+      ),
+    )
+  }
 }
 
 export const config = {
-  matcher: ['/((?!_next).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 }

@@ -23,14 +23,16 @@ export default function RootLayout({
     <html lang="en">
       <Providers>
         <Body className={clsx(inter.variable, 'font-inter')}>
-          <main className="container flex h-full min-h-screen gap-16 text-gray-900 dark:bg-dark dark:text-gray-100">
-            <PageSidebar />
-            <div className="flex flex-[2] items-center justify-center">
-              <div className="flex w-full max-w-md flex-col gap-16 py-16">
-                {children}
+          <div className="text-gray-900 transition-all duration-300 dark:bg-dark dark:text-gray-100">
+            <main className="container flex h-full min-h-screen gap-16">
+              <PageSidebar />
+              <div className="flex flex-[2] items-center justify-center">
+                <div className="flex w-full max-w-md flex-col gap-16 py-16">
+                  {children}
+                </div>
               </div>
-            </div>
-          </main>
+            </main>
+          </div>
         </Body>
       </Providers>
     </html>
