@@ -5,6 +5,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useState,
 } from 'react'
 
@@ -19,9 +20,7 @@ export interface ThemeContextProps {
 const ThemeContext = createContext({} as ThemeContextProps)
 
 export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<ThemeProps>(
-    (localStorage.getItem('megazod_theme') as ThemeProps) ?? 'dark',
-  )
+  const [theme, setTheme] = useState<ThemeProps>('dark')
 
   const handleChangeTheme = useCallback((data: ThemeProps) => {
     setTheme(data)
@@ -32,6 +31,12 @@ export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
     if (theme === 'dark') handleChangeTheme('light')
     if (theme === 'light') handleChangeTheme('dark')
   }, [handleChangeTheme, theme])
+
+  useEffect(() => {
+    handleChangeTheme(
+      (localStorage.getItem('megazod_theme') as ThemeProps | null) ?? 'dark',
+    )
+  }, [handleChangeTheme])
 
   return (
     <ThemeContext.Provider
