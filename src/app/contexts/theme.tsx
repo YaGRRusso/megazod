@@ -19,11 +19,13 @@ export interface ThemeContextProps {
 const ThemeContext = createContext({} as ThemeContextProps)
 
 export const ThemeContextProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<ThemeProps>('dark')
+  const [theme, setTheme] = useState<ThemeProps>(
+    (localStorage.getItem('megazod_theme') as ThemeProps) ?? 'dark',
+  )
 
   const handleChangeTheme = useCallback((data: ThemeProps) => {
     setTheme(data)
-    localStorage.setItem('templateTheme', data)
+    localStorage.setItem('megazod_theme', data)
   }, [])
 
   const handleToggleTheme = useCallback(() => {
