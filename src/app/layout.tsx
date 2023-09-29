@@ -24,9 +24,7 @@ export default function RootLayout({
       <Providers>
         <Body className={clsx(inter.variable, 'font-inter')}>
           <main className="container flex h-full min-h-screen gap-16 text-gray-900 dark:bg-dark dark:text-gray-100">
-            <div className="flex max-w-xs flex-[1] items-center justify-end py-16 max-lg:hidden">
-              <PageSidebar />
-            </div>
+            <PageSidebar />
             <div className="flex flex-[2] items-center justify-center">
               <div className="flex w-full max-w-md flex-col gap-16 py-16">
                 {children}
