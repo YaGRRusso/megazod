@@ -1,13 +1,14 @@
 'use client'
 
 import { Sidebar, SidebarButtonProps, SidebarRootProps } from '@/components'
+import { getLang } from '@/helpers/router.helper'
 import { Alien, Atom, FlyingSaucer, House, Robot } from '@phosphor-icons/react'
 import { usePathname } from 'next/navigation'
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 
 const links: SidebarButtonProps[] = [
   {
-    path: '/',
+    path: '',
     icon: <House />,
     title: 'Home',
     desc: 'Tela inicial de apresentação sobre o projeto',
@@ -43,16 +44,20 @@ export interface PageSidebarProps extends SidebarRootProps {}
 const PageSidebar: FC<PageSidebarProps> = ({ children, ...rest }) => {
   const pathname = usePathname()
 
+  useEffect(() => {
+    console.log(getLang(pathname))
+  }, [pathname])
+
   return (
     <Sidebar.Root {...rest}>
       {links.map((item, index) => (
         <Sidebar.Button
           key={index}
-          path={item.path}
+          path={getLang(pathname) + item.path}
           icon={item.icon}
           title={item.title}
           desc={item.desc}
-          active={pathname === item.path}
+          active={pathname === getLang(pathname) + item.path}
         />
       ))}
     </Sidebar.Root>
