@@ -19,14 +19,15 @@ function getLocale(request: NextRequest): string | undefined {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+  const routes = pathname.match(/\/[^/]+/g)
+
   if (/\.(.*)$/.test(pathname)) return NextResponse.next() // skip public directory
 
-  const pathnameIsMissingLocale = locales.every(
-    (locale) =>
-      !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`,
+  const pathnameHasLocale = locales.some(
+    (locale) => routes && `/${locale}` === routes[0],
   )
 
-  if (pathnameIsMissingLocale) {
+  if (!pathnameHasLocale) {
     const locale = getLocale(request)
 
     return NextResponse.redirect(
